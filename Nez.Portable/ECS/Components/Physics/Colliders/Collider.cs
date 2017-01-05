@@ -8,6 +8,11 @@ namespace Nez
 	public abstract class Collider : Component
 	{
 		/// <summary>
+		///	Name of the collider. Useful if we want to track a specific collider when an entity has more than one
+		/// </summary>
+		public string name;
+
+		/// <summary>
 		/// the underlying Shape of the Collider
 		/// </summary>
 		public Shape shape;
