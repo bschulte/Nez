@@ -25,6 +25,11 @@ namespace Nez
 		bool _shouldCreateColliders;
 		Collider[] _colliders;
 
+		/// <summary>
+		/// Keep track of the name of the layer if it's been given. This is used to provide the collider for the tiledmap component
+		/// a name
+		/// </summary>
+		private string _layerName = null;
 
 		public TiledMapComponent( TiledMap tiledMap, string collisionLayerName = null, bool shouldCreateColliders = true )
 		{
@@ -32,7 +37,10 @@ namespace Nez
 			_shouldCreateColliders = shouldCreateColliders;
 
 			if( collisionLayerName != null )
+			{
+				_layerName = collisionLayerName;
 				collisionLayer = tiledMap.getLayer<TiledTileLayer>( collisionLayerName );
+			}
 		}
 
 
@@ -189,6 +197,7 @@ namespace Nez
 				var collider = new BoxCollider( collisionRects[i].X + _localOffset.X, collisionRects[i].Y + _localOffset.Y, collisionRects[i].Width, collisionRects[i].Height );
 				collider.physicsLayer = physicsLayer;
 				collider.entity = entity;
+				collider.name = _layerName;
 				_colliders[i] = collider;
 
 				Physics.addCollider( collider );
