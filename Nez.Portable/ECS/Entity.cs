@@ -453,7 +453,6 @@ namespace Nez
 			return components.getComponent<T>( false );
 		}
 
-
 		/// <summary>
 		/// Gets the first Component of type T and returns it. If no Component is found the Component will be created.
 		/// </summary>

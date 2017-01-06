@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Nez.BitmapFonts;
 
-
 namespace Nez
 {
 	// TODO: add Conditionals for all log levels
